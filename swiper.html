@@ -30,7 +30,7 @@
                     // }
                     // var rowid = 'row'+rowCounter;
                     // alert(rowid);
-                    $('#photos').append( "<img class='w3-quarter' id='"+counter+"' src='"+ folder + val +"' alt='"+counter+"'>" );
+                    $('#photos').append( "<img class='w3-quarter' onclick='stopNCage(this)' id='"+counter+"' src='"+ folder + val +"' alt='"+counter+"'>" );
                     counter = counter+1;
                 } 
             });
