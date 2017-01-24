@@ -14,7 +14,7 @@
 
 var pictureNumber =0;
 var nCaged = [];
-var currentInterval = 5000;
+var currentInterval = 3500;
 
 var sec = 0;
 function pad ( val ) { return val > 9 ? val : "0" + val; }
@@ -34,7 +34,7 @@ var NCager = window.setInterval(function(){
   }  
   else{
     var photoId = 'photo'+rand;
-    alert(currentInterval);
+    // alert(currentInterval);
     document.getElementById('photo'+rand).alt=document.getElementById('photo'+rand).src;
     document.getElementById('photo'+rand).src="Ncage.jpg";
     nCaged.push('photo'+rand);
