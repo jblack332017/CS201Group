@@ -30,7 +30,7 @@ window.setInterval(function(){
     document.getElementById('photo'+rand).alt=document.getElementById('photo'+rand).src;
     document.getElementById('photo'+rand).src="Ncage.jpg";
     nCaged.push('photo'+rand);
-    document.getElementById("count").innerHTML=nCaged.length"/10"
+    document.getElementById("count").innerHTML=nCaged.length+"/10"
   }
   
 }, 2000);
@@ -60,7 +60,7 @@ window.setInterval(function(){
                 } 
             });
             pictureNumber = counter;
-            document.getElementById("count").innerHTML=nCaged.length"/10"
+            document.getElementById("count").innerHTML=nCaged.length+"/10"
 
         }
     });
@@ -74,7 +74,7 @@ function stopNCage(image){
     var index = $.inArray(image.id, nCaged);
     nCaged.splice(index,1);
     image.src = image.alt;
-    document.getElementById("count").innerHTML=nCaged.length"/10"
+    document.getElementById("count").innerHTML=nCaged.length+"/10"
 
   }
 }
