@@ -26,6 +26,7 @@ var timer = setInterval( function(){
 
 
 var NCager = function(){
+  clearInterval(interval);
   var rand =  Math.floor(Math.random() * pictureNumber) + 0;
 
   var index = $.inArray('photo'+rand, nCaged);
