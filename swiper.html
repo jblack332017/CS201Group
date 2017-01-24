@@ -23,14 +23,14 @@
             $(data).find("a").attr("href", function (i, val) {
                 if( val.match(/\.(jpe?g|png|gif)$/) ) { 
                     // alert("here");
-                    if (counter%3==0)
-                    {
-                      rowCounter = rowCounter+1;
-                      $("#photos").append("<div id='row"+rowCounter+"' class='w3-quarter'>");
-                    }
-                    var rowid = 'row'+rowCounter;
+                    // if (counter%3==0)
+                    // {
+                    //   rowCounter = rowCounter+1;
+                    //   $("#photos").append("<div id='row"+rowCounter+"' class='w3-quarter'>");
+                    // }
+                    // var rowid = 'row'+rowCounter;
                     // alert(rowid);
-                    $('#'+rowid).append( "<img id='"+counter+"' src='"+ folder + val +"' alt='"+counter+"'>" );
+                    $('#photos').append( "<img class='w3-quarter' id='"+counter+"' src='"+ folder + val +"' alt='"+counter+"'>" );
                     counter = counter+1;
                 } 
             });
