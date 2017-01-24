@@ -21,20 +21,18 @@
   var folder = "images/";
   document.getElementById("photos").innerHTML="";
 
+var dir = "Src/themes/base/images/";
+var fileextension = ".png";
 $.ajax({
-    url : folder,
+    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
+    url: dir,
     success: function (data) {
-        $(data).find("a").attr("href", function (i, val) {
-                                alert(val); 
-
-            if( val.match(/\.(jpe?g|png|gif|jpg)$/) ) {
-                $("photos").append( "<img src='"+ folder + val +"'>" );
-            } 
+        //List all .png file names in the page
+        $(data).find("a:contains(" + fileextension + ")").each(function () {
+            var filename = this.href.replace(window.location.host, "").replace("http://", "");
+            $("body").append("<img src='" + dir + filename + "'>");
         });
-    },
-    error: function(XMLHttpRequest, textStatus, errorThrown) { 
-        alert("error");
-    } 
+    }
 });
 }
 
