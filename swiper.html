@@ -23,7 +23,7 @@ var timer = setInterval( function(){
     $("#minutes").html(pad(parseInt(sec/60,10)));
 }, 1000);
 
-window.setInterval(function(){
+var NCager = window.setInterval(function(){
   var rand =  Math.floor(Math.random() * pictureNumber) + 0;
 
   var index = $.inArray('photo'+rand, nCaged);
@@ -34,12 +34,16 @@ window.setInterval(function(){
   }  
   else{
     var photoId = 'photo'+rand;
-    //alert(photoId);
+    alert(currentInterval);
     document.getElementById('photo'+rand).alt=document.getElementById('photo'+rand).src;
     document.getElementById('photo'+rand).src="Ncage.jpg";
     nCaged.push('photo'+rand);
     document.getElementById("count").innerHTML=nCaged.length+"/10"
-    currentInterval = currentInterval-100;
+    if (currentInterval>200)
+    {
+      currentInterval = currentInterval-100;
+      setInterval(NCager);
+    }
 
     if (nCaged.length>=10)
     {
