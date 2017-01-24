@@ -45,8 +45,9 @@ var NCager = function(){
     if (currentInterval>200)
     {
       currentInterval = currentInterval-100;
-      setInterval(NCager,currentInterval);
     }
+    interval = setInterval(NCager,currentInterval);
+
 
     if (nCaged.length>=10)
     {
