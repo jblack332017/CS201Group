@@ -19,17 +19,18 @@
         url : folder,
         success: function (data) {
           var counter =0;
-          var row =0;
+          var rowCounter =0;
             $(data).find("a").attr("href", function (i, val) {
                 if( val.match(/\.(jpe?g|png|gif)$/) ) { 
                     // alert("here");
                     if (counter%3==0)
                     {
 
-                      $("#photos").append("<div id='row"+row+"' class='w3-quarter'>");
+                      $("#photos").append("<div id='row"+rowCounter+"' class='w3-quarter'>");
                       row = row+1;
                     }
-                    var rowid = 'row'+row;
+                    var rowid = 'row'+rowCounter;
+                    alert(rowid);
                     $('#'+rowid).append( "<img id='"+counter+"' src='"+ folder + val +"' alt='"+counter+"'>" );
                     counter = counter+1;
                 } 
