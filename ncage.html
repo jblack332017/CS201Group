@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Save the NCage</title>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,34 +9,98 @@
 <link rel="stylesheet" href="swiper.css">
 
 </head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="jquery-1.4.2.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-  function loadImages(){
 
+var pictureNumber =0;
+var nCaged = [];
+var currentInterval = 3500;
+
+var sec = 0;
+function pad ( val ) { return val > 9 ? val : "0" + val; }
+var timer = setInterval( function(){
+    $("#seconds").html(pad(++sec%60));
+    $("#minutes").html(pad(parseInt(sec/60,10)));
+}, 1000);
+
+
+
+var NCager = function(){
+  clearInterval(interval);
+  var rand =  Math.floor(Math.random() * pictureNumber) + 0;
+
+  var index = $.inArray('photo'+rand, nCaged);
+
+  if (index!=-1)
+  {
     
+  }  
+  else{
+    var photoId = 'photo'+rand;
+    // alert(currentInterval);
+    document.getElementById('photo'+rand).alt=document.getElementById('photo'+rand).src;
+    document.getElementById('photo'+rand).src="Ncage.jpg";
+    nCaged.push('photo'+rand);
+    document.getElementById("count").innerHTML=nCaged.length+"/10"
+    if (currentInterval>200)
+    {
+      currentInterval = currentInterval-50;
+    }
 
-  
 
 
-  var folder = "images/";
-  document.getElementById("photos").innerHTML="";
-
-$.ajax({
-    url : folder,
-    success: function (data) {
-        alert("here");
-        $(data).find("a").attr("href", function (i, val) {
-            if( val.match(/\.(jpe?g|png|gif|jpg)$/) ) { 
-                $("photos").append( "<img src='"+ folder + val +"'>" );
-            } 
-        });
-    },
-    error: function(XMLHttpRequest, textStatus, errorThrown) { 
-        alert("error");
-    } 
-});
+    if (nCaged.length>=10)
+    {
+      document.getElementById("instructions").innerHTML="OH NO! My memories! NCage won!";
+      clearInterval ( timer );
+    }
+  }
+    interval = setInterval(NCager,currentInterval);
 }
+var interval = setInterval(NCager,currentInterval);
 
+  function loadImages(){
+    var folder = "images/";
+    document.getElementById("photos").innerHTML="";
+
+    $.ajax({
+        url : folder,
+        success: function (data) {
+          var counter =0;
+          //var rowCounter =-1;
+            $(data).find("a").attr("href", function (i, val) {
+                if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+                    // alert("here");
+                    // if (counter%3==0)
+                    // {
+                    //   rowCounter = rowCounter+1;
+                    //   $("#photos").append("<div id='row"+rowCounter+"' class='w3-quarter'>");
+                    // }
+                    // var rowid = 'row'+rowCounter;
+                    // alert(rowid);
+                    $('#photos').append( "<img class='w3-quarter' onclick='stopNCage(this)' id='photo"+counter+"' src='"+ folder + val +"' alt='"+counter+"'>" );
+                    counter = counter+1;
+                } 
+            });
+            pictureNumber = counter;
+            document.getElementById("count").innerHTML=nCaged.length+"/10"
+
+        }
+    });
+  }
+
+
+function stopNCage(image){
+  var imageSrc = image.src;
+  if (imageSrc.includes("Ncage.jpg"))
+  {
+    var index = $.inArray(image.id, nCaged);
+    nCaged.splice(index,1);
+    image.src = image.alt;
+    document.getElementById("count").innerHTML=nCaged.length+"/10"
+
+  }
+}
 
 </script>
 
@@ -45,7 +109,13 @@ $.ajax({
 <body onload="loadImages()"  class="w3-light-grey">
 <!-- Top menu on small screens -->
 <header  class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
-  <span class="w3-left w3-padding">SOME NAME</span>
+  <p class="w3-center" id="instructions">Oh No! NCage has started to take over my family photos! Help me save my memories by clicking on him when he shows up! Keep it under 10 NCage photos.</p>
+  <div class="w3-center">
+  <span id="minutes"></span>:<span id="seconds"></span>
+  </div>
+  <div class="w3-center">
+  <h2 id="count"></h2>
+  </div>
 </header>
 
 <!-- Overlay effect when opening sidenav on small screens -->
@@ -83,14 +153,7 @@ $.ajax({
 
   
   
-  <!-- Modal for full size images on click-->
-  <div id="modal01" class="w3-modal w3-black w3-padding-0" onclick="this.style.display='none'">
-    <span class="w3-closebtn w3-text-white w3-opacity w3-hover-opacity-off w3-xxlarge w3-container w3-display-topright">×</span>
-    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-      <img id="img01" class="w3-image">
-      <p id="caption"></p>
-    </div>
-  </div>
+  
 
   <!-- About section -->
   <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="about">
@@ -137,7 +200,7 @@ $.ajax({
     </div>
   </footer>
   
-  <div class="w3-black w3-center w3-padding-24">Powered by <a href="http://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div>
+  <div class="w3-black w3-center w3-padding-24"></div>
 
 <!-- End page content -->
 </div>
