@@ -23,7 +23,7 @@ window.setInterval(function(){
   if (index!=-1)
   {
     alert(nCaged+"-----"+rand);
-    document.getElementById(rand).innerHTML="";
+    document.getElementById('photo'+rand).innerHTML="";
   }  
   else{
     nCaged.push(rand);
@@ -51,7 +51,7 @@ window.setInterval(function(){
                     // }
                     // var rowid = 'row'+rowCounter;
                     // alert(rowid);
-                    $('#photos').append( "<img class='w3-quarter' onclick='stopNCage(this)' id='"+counter+"' src='"+ folder + val +"' alt='"+counter+"'>" );
+                    $('#photos').append( "<img class='w3-quarter' onclick='stopNCage(this)' id=photo'"+counter+"' src='"+ folder + val +"' alt='"+counter+"'>" );
                     counter = counter+1;
                 } 
             });
