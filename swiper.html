@@ -28,8 +28,8 @@ $.ajax({
     url: dir,
     success: function (data) {
         //List all .png file names in the page
-        alert(fileextension);
         $(data).find("a:contains(" + fileextension + ")").each(function () {
+                  alert(fileextension);
             var filename = this.href.replace(window.location.host, "").replace("http://", "");
             $("body").append("<img src='" + dir + filename + "'>");
         });
