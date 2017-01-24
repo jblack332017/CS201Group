@@ -12,27 +12,31 @@
 <script src="jquery-1.4.2.min.js" type="text/javascript"></script>
 <script type="text/javascript">
   function loadImages(){
+    var folder = "images/";
+    document.getElementById("photos").innerHTML="";
 
-    
+    $.ajax({
+        url : folder,
+        success: function (data) {
+          var counter =0;
+            $(data).find("a").attr("href", function (i, val) {
+                if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+                    if (counter%3==0)
+                    {
+                      if (counter!=0)
+                      {
+                        $("photos").append("</div>");
+                      }
+                      $("photos").append("<div class='w3-quarter'>");
 
-  
+                    }
+                    $("photos").append( "<img id='"+counter+"' src='"+ folder + val +"' alt='"+counter+"'>" );
+                } 
+            });
+        }
+    });
 
-
-  var folder = "images/";
-  document.getElementById("photos").innerHTML="";
-
-$.ajax({
-    url : folder,
-    success: function (data) {
-        $(data).find("a").attr("href", function (i, val) {
-            if( val.match(/\.(jpe?g|png|gif)$/) ) { 
-                $("body").append( "<img src='"+ folder + val +"'>" );
-            } 
-        });
-    }
-});
-
-}
+  }
 
 
 </script>
