@@ -94,7 +94,7 @@ var interval = setInterval(NCager,currentInterval);
 
 function stopNCage(image){
   var imageSrc = image.src;
-  if (imageSrc.includes("Ncage.jpg"))
+  if (imageSrc.includes("Ncage"))
   {
     var index = $.inArray(image.id, nCaged);
     nCaged.splice(index,1);
