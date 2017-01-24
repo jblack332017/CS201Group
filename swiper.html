@@ -64,7 +64,8 @@ window.setInterval(function(){
 
 
 function stopNCage(image){
-  if (image.src.includes("Ncage.jpg"))
+  var imageSrc = image.src;
+  if (imageSrc.includes("Ncage.jpg"))
   {
     alert("here");
   }
