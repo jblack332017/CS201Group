@@ -17,7 +17,7 @@ var nCaged = [];
 
 var sec = 0;
 function pad ( val ) { return val > 9 ? val : "0" + val; }
-setInterval( function(){
+var timer = setInterval( function(){
     $("#seconds").html(pad(++sec%60));
     $("#minutes").html(pad(parseInt(sec/60,10)));
 }, 1000);
@@ -38,6 +38,12 @@ window.setInterval(function(){
     document.getElementById('photo'+rand).src="Ncage.jpg";
     nCaged.push('photo'+rand);
     document.getElementById("count").innerHTML=nCaged.length+"/10"
+
+    if (nCaged.length>=10)
+    {
+      document.getElementById("instructions").innerHTML="OH NO! My memories! NCage won!";
+      clearInterval ( timer );
+    }
   }
   
 }, 2000);
