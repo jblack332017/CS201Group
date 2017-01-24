@@ -42,7 +42,7 @@ var NCager = window.setInterval(function(){
     if (currentInterval>200)
     {
       currentInterval = currentInterval-100;
-      setInterval(NCager);
+      setInterval(NCager,currentInterval);
     }
 
     if (nCaged.length>=10)
