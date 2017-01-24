@@ -23,7 +23,9 @@ var timer = setInterval( function(){
     $("#minutes").html(pad(parseInt(sec/60,10)));
 }, 1000);
 
-var NCager = window.setInterval(function(){
+
+
+var NCager = function(){
   var rand =  Math.floor(Math.random() * pictureNumber) + 0;
 
   var index = $.inArray('photo'+rand, nCaged);
@@ -42,7 +44,8 @@ var NCager = window.setInterval(function(){
     if (currentInterval>200)
     {
       currentInterval = currentInterval-100;
-      setTimeout(NCager,currentInterval);
+      alert()
+      setInterval(NCager,currentInterval);
     }
 
     if (nCaged.length>=10)
@@ -52,8 +55,8 @@ var NCager = window.setInterval(function(){
     }
   }
   
-}, currentInterval);
-
+}
+var interval = setInterval(NCager,currentInterval);
 
   function loadImages(){
     var folder = "images/";
