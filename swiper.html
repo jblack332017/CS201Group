@@ -26,12 +26,12 @@
                     {
                       if (counter!=0)
                       {
-                        $("photos").append("</div>");
+                        $("#photos").append("</div>");
                       }
-                      $("photos").append("<div class='w3-quarter'>");
+                      $("#photos").append("<div class='w3-quarter'>");
 
                     }
-                    $("body").append( "<img id='"+counter+"' src='"+ folder + val +"' alt='"+counter+"'>" );
+                    $("#photos").append( "<img id='"+counter+"' src='"+ folder + val +"' alt='"+counter+"'>" );
                     counter = counter+1;
                 } 
             });
