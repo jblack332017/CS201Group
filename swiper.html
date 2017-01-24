@@ -24,9 +24,9 @@
 $.ajax({
     url : folder,
     success: function (data) {
+                      alert(val); 
         $(data).find("a").attr("href", function (i, val) {
             if( val.match(/\.(jpe?g|png|gif|jpg)$/) ) {
-                alert(val); 
                 $("photos").append( "<img src='"+ folder + val +"'>" );
             } 
         });
