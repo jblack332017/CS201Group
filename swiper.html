@@ -29,8 +29,8 @@
                       $("#photos").append("<div id='row"+row+"' class='w3-quarter'>");
                       row = row+1;
                     }
-                    var rowid = "#row"+row;
-                    $(rowid).append( "<img id='"+counter+"' src='"+ folder + val +"' alt='"+counter+"'>" );
+                    var rowid = "row"+row;
+                    $("#"+rowid).append( "<img id='"+counter+"' src='"+ folder + val +"' alt='"+counter+"'>" );
                     counter = counter+1;
                 } 
             });
