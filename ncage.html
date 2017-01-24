@@ -39,7 +39,9 @@ var NCager = function(){
     var photoId = 'photo'+rand;
     // alert(currentInterval);
     document.getElementById('photo'+rand).alt=document.getElementById('photo'+rand).src;
-    document.getElementById('photo'+rand).src="Ncage.jpg";
+    var randNCage =  Math.floor(Math.random() * 6) + 0;
+
+    document.getElementById('photo'+rand).src="ncageImages/Ncage.jpg"+randNCage;
     nCaged.push('photo'+rand);
     document.getElementById("count").innerHTML=nCaged.length+"/10"
     if (currentInterval>200)
