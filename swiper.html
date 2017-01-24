@@ -18,7 +18,7 @@ var nCaged = [];
 window.setInterval(function(){
   var rand =  Math.floor(Math.random() * pictureNumber) + 0;
 
-  var index = $.inArray(rand, nCaged);
+  var index = $.inArray('photo'+rand, nCaged);
 
   if (index!=-1)
   {
@@ -27,8 +27,9 @@ window.setInterval(function(){
   else{
     var photoId = 'photo'+rand;
     //alert(photoId);
+    document.getElementById('photo'+rand).alt=document.getElementById('photo'+rand).src;
     document.getElementById('photo'+rand).src="Ncage.jpg";
-    nCaged.push(rand);
+    nCaged.push('photo'+rand);
   }
   
 }, 2000);
@@ -67,7 +68,9 @@ function stopNCage(image){
   var imageSrc = image.src;
   if (imageSrc.includes("Ncage.jpg"))
   {
-    alert("here");
+    var index = $.inArray(image.id, nCaged);
+    nCaged.splice(index,1);
+    image.src = image.alt;
   }
 }
 
