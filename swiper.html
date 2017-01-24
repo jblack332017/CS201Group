@@ -46,8 +46,7 @@ var NCager = function(){
     {
       currentInterval = currentInterval-100;
     }
-    alert(currentInterval);
-    interval = setInterval(NCager,currentInterval);
+
 
 
     if (nCaged.length>=10)
@@ -56,7 +55,8 @@ var NCager = function(){
       clearInterval ( timer );
     }
   }
-  
+  alert(currentInterval);
+    interval = setInterval(NCager,currentInterval);
 }
 var interval = setInterval(NCager,currentInterval);
 
