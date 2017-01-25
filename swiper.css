@@ -4,7 +4,8 @@ img{
 	cursor: pointer;
 }
  img:hover{
-	opacity: 0.6; transition: 0.3s
+	opacity: 0.6; 
+	transition: 0.3s
 }
 img {
 	width: 100%;
