@@ -16,3 +16,7 @@ img {
 #photos {
 	margin-top: 300px!important;
 }
+
+.magicWord{
+	display: none;
+}

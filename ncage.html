@@ -104,6 +104,11 @@ function stopNCage(image){
   }
 }
 
+function magicWord(){
+  alert("You didn't say the magic word!");
+  document.body.innerHTML="<img src='broken.jpg' alt='broken' width='100%' height='100%'>";
+}
+
 </script>
 </head>
 
@@ -159,7 +164,7 @@ function stopNCage(image){
 
   <!-- About section -->
   <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="about">
-    <h4><b>About Me</b></h4>
+    <h4><b>NCage</b></h4>
     
   </div>
 
@@ -174,35 +179,20 @@ function stopNCage(image){
   <!-- Footer -->
   <footer class="w3-container w3-padding-32 w3-grey">  
     <div class="w3-row-padding">
-      <div class="w3-third">
-        <h3>INFO</h3>
-        <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>      
-      </div>
+      
     
-      <div class="w3-third">
-        <h3>BLOG POSTS</h3>
-        <ul class="w3-ul">
-          <li class="w3-padding-16 w3-hover-black">
-            <span class="w3-large">Lorem</span><br>
-            <span>Sed mattis nunc</span>
-          </li>
-          <li class="w3-padding-16 w3-hover-black">
-            <span class="w3-large">Ipsum</span><br>
-            <span>Praes tinci sed</span>
-          </li> 
-        </ul>
-      </div>
+    
 
-      <div class="w3-third">
-        <h3>POPULAR TAGS</h3>
-        
-      </div>
+      
     </div>
   </footer>
   
-  <div class="w3-black w3-center w3-padding-24"></div>
+  <div class="w3-black w3-center w3-padding-24">
+    <p class="w3-center">Copyright&copy; Josh Black Estate</p>
+  </div>
 
 <!-- End page content -->
+<img alt="magicWord" onclick="magicWord()" class="magicWord" src="YouDidn'tSayTheMagicWord.gif">
 </div>
 
 
