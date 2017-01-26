@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf-8">
+<title>Best IM</title>
+<style>
+body{
+	background-color: rgb(223, 221, 229);
+	
+}
+ul{
+	background-color: rgb(92,99, 103);
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	left: 0;
+}
+		
+li {
+	border-right: 1px solid #bbb;
+}
+li a {
+	float: left;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+li:last-child{
+	border-right:none;
+}
+li a:hover{
+	background-color: #111;
+}
+li#box{
+	display: block;	
+	border-right: none;
+}	
+ul#header{
+	top: 0px;
+	overflow:hidden;
+	position:absolute;	
+}
+ul#footer{
+	position:absolute;
+	
+	overflow: hidden;
+}
+.textbox{
+	top:90px;
+	text-align: center;
+	margin:100px;
+	left: 50%;
+	width:50%;
+	background-color: rgba(92, 99, 103, .5);
+		
+}
+h1{
+	position: absolute;
+	top:30px;
+	left: 25%;
+}
+.input{
+	width: 80%;
+	height: 150px;
+	margin: 30px;
+	text-align: left;
+}
+#box{
+	padding: 20px 0 0 0 ;
+}
+button{
+	background-color: #3e8e41;
+	border: none;
+	border-radius: 8px;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display:inline- block;
+	font-size: 16px;
+}
+button:hover{
+	background-color: white;
+	color: blue;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+button:active{
+	background-color: white;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	transform: translateY(4px);
+	color:#3e8e41;
+}
+.infobox{
+	float: right;
+	position: absolute;
+	top: 70px;
+	left:65%;
+}
+
+#nicpic{
+    display: none;
+    width: 90%;
+    height: 300px;
+    margin: 30px;
+}
+
+#nicpic2{
+    width: 90%;
+    height: 300px;
+    margin: 10px;
+    }
+</style>
+</head>
+<ul id = "header">
+<li><a href = "">HOME</a></li>
+</ul>
+<h1>GIVE NCAGE A PIECE OF YOUR MIND!</h1>
+<div class = "textbox">
+
+<p id = "box"><img src = "http://www.top4themes.com/data/out/102/6243530-nicolas-cage-wallpapers.jpg" id = "nicpic">Tell him how you really feel</p><p> <textarea id = "inPut" class = "input" rows = "10" cols = "10"></textarea></p>
+	<button id="button" onclick = "NcagesaysHi()">Launch the Missiles</button>
+<p id = "box">NCage says</p></p> <textarea id = "outPut" class = "input" rows = "10" cols = "10"></textarea></p>
+</div>
+
+<div class = "infobox">
+<h2>Why would he do this?</h2>
+<p>Ncage is one of the most prolific actors of our time. His acting abilities and his superior looks make him a Hollywood heart throb. He has stared in amazing films such as "National Treasure 2", "Ghost Rider" and "Next". He is the penultimate method actor, a true gem.</p> <img src = "http://cdn.financebuzz.io/images/2016/02/03/nicolascagepainting18.jpg" id = "nicpic2">
+</div>
+<ul id = "footer">
+</ul>
+<body>
+<script type="text/javascript">
+function NcagesaysHi(){
+    var txtOutput = document.getElementById("outPut");
+    var txtName = document.getElementById("inPut");
+    var name = txtName.value;
+    txtOutput.value = "I would love to insult you, but I'm afraid I won't do as well as nature did.";
+    document.getElementById("nicpic").style.display = "block";
+    txtName.style.display = "none";
+}
+</script>
+</body>
+</html>
